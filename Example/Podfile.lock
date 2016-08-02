@@ -1,0 +1,16 @@
+PODS:
+  - AYRuntime (1.0.0)
+
+DEPENDENCIES:
+  - AYRuntime (from `../`)
+
+EXTERNAL SOURCES:
+  AYRuntime:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AYRuntime: 9fae75f47ae803388da83e99cb20c934cb2e2783
+
+PODFILE CHECKSUM: 74aad713c7d3565847b360a8cd26f14f21ee5091
+
+COCOAPODS: 1.0.0

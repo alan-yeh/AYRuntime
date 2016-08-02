@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'AYRuntime_Example' do
+  pod 'AYRuntime', :path => '../'
+
+  target 'AYRuntime_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
