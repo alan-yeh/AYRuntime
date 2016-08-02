@@ -116,8 +116,8 @@
 }
 
 - (void)testGetClassMethod{
-    Method forwarding = class_getClassMethod([AYTestSwizzleClass class], @selector(forwardingTargetForSelector:));
-    XCTAssert(forwarding == NULL);
+    //Method forwarding = class_getInstanceMethod([AYTestSwizzleClass class], @selector(forwardingTargetForSelector:));
+    //XCTAssert(forwarding == NULL);
     
     Method hello = class_getClassMethod([AYTestSwizzleClass class], @selector(hello:));
     XCTAssert(hello != NULL && method_getName(hello) == @selector(hello:));
