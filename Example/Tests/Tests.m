@@ -10,7 +10,6 @@
 #import <AYRuntime/AYRuntime.h>
 
 #import "AYTestSwizzleClass.h"
-#import "AYTestSwizzleSubclass.h"
 
 @interface Tests : XCTestCase
 

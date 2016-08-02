@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5D4500961D504484005D1483 /* AYTestSwizzleClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4500951D504484005D1483 /* AYTestSwizzleClass.m */; };
-		5D4500991D5044A9005D1483 /* AYTestSwizzleSubclass.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4500981D5044A9005D1483 /* AYTestSwizzleSubclass.m */; };
 		5D45009F1D504E11005D1483 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D45009E1D504E11005D1483 /* Launch Screen.storyboard */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -44,8 +43,6 @@
 		41DBCECA5B1BD07C2C6B0E28 /* Pods-AYRuntime_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AYRuntime_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AYRuntime_Example/Pods-AYRuntime_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5D4500941D504484005D1483 /* AYTestSwizzleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AYTestSwizzleClass.h; path = Classes/AYTestSwizzleClass.h; sourceTree = "<group>"; };
 		5D4500951D504484005D1483 /* AYTestSwizzleClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AYTestSwizzleClass.m; path = Classes/AYTestSwizzleClass.m; sourceTree = "<group>"; };
-		5D4500971D5044A9005D1483 /* AYTestSwizzleSubclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AYTestSwizzleSubclass.h; path = Classes/AYTestSwizzleSubclass.h; sourceTree = "<group>"; };
-		5D4500981D5044A9005D1483 /* AYTestSwizzleSubclass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AYTestSwizzleSubclass.m; path = Classes/AYTestSwizzleSubclass.m; sourceTree = "<group>"; };
 		5D45009E1D504E11005D1483 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* AYRuntime_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AYRuntime_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,8 +103,6 @@
 			children = (
 				5D4500941D504484005D1483 /* AYTestSwizzleClass.h */,
 				5D4500951D504484005D1483 /* AYTestSwizzleClass.m */,
-				5D4500971D5044A9005D1483 /* AYTestSwizzleSubclass.h */,
-				5D4500981D5044A9005D1483 /* AYTestSwizzleSubclass.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -414,7 +409,6 @@
 			files = (
 				6003F59E195388D20070C39A /* AYAppDelegate.m in Sources */,
 				5D4500961D504484005D1483 /* AYTestSwizzleClass.m in Sources */,
-				5D4500991D5044A9005D1483 /* AYTestSwizzleSubclass.m in Sources */,
 				6003F5A7195388D20070C39A /* AYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);

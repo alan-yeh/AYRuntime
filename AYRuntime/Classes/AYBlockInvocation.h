@@ -19,7 +19,7 @@
 @property (readonly) BOOL argumentsRetained;
 
 - (void)getReutrnValue:(void *)retLoc;
-- (void)setArgument:(void *)argLoc atIndex:(NSInteger)idx;/** Index should begin at 1. */
+- (void)setArgument:(void *)argLoc atIndex:(NSInteger)idx;/**< Index should start at 1. */
 
 - (void)invoke;
 @end
