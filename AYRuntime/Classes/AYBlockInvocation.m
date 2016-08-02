@@ -33,7 +33,7 @@
     return [_invocation argumentsRetained];
 }
 
-- (void)getReutrnValue:(void *)retLoc{
+- (void)getReturnValue:(void *)retLoc{
     [_invocation getReturnValue:retLoc];
 }
 

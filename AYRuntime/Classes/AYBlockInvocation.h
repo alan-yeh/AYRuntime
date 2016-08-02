@@ -18,7 +18,7 @@
 - (void)retainArguments;
 @property (readonly) BOOL argumentsRetained;
 
-- (void)getReutrnValue:(void *)retLoc;
+- (void)getReturnValue:(void *)retLoc;
 - (void)setArgument:(void *)argLoc atIndex:(NSInteger)idx;/**< Index should start at 1. */
 
 - (void)invoke;
