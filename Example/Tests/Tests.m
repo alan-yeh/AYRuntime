@@ -115,5 +115,32 @@
     XCTAssert(CGPointEqualToPoint(CGPointMake(2.0, 2.0), result));
 }
 
+- (void)testGetClassMethod{
+    Method forwarding = class_getClassMethod([AYTestSwizzleClass class], @selector(forwardingTargetForSelector:));
+    XCTAssert(forwarding == NULL);
+    
+    Method hello = class_getClassMethod([AYTestSwizzleClass class], @selector(hello:));
+    XCTAssert(hello != NULL && method_getName(hello) == @selector(hello:));
+}
+
+- (void)testAssociatedObject{
+    AYTestSwizzleClass *testObject = [[AYTestSwizzleClass alloc] init];
+    objc_AssociationKey(AY_TEST_SWIZZLE_ASSOCIATION_KEY);
+    NSString *str = objc_getAssociatedDefaultObject(testObject, AY_TEST_SWIZZLE_ASSOCIATION_KEY, @"abc", OBJC_ASSOCIATION_COPY);
+    XCTAssert([str isEqualToString:@"abc"]);
+    
+    NSString *str2 = objc_getAssociatedObject(testObject, AY_TEST_SWIZZLE_ASSOCIATION_KEY);
+    XCTAssert([str2 isEqualToString:@"abc"]);
+    
+    objc_AssociationKey(AY_TEST_SWIZZLE_ASSOCIATION_KEY2);
+    NSString *str3 = objc_getAssociatedDefaultObjectBlock(testObject, AY_TEST_SWIZZLE_ASSOCIATION_KEY2, OBJC_ASSOCIATION_COPY, ^id{
+        return @"aaa";
+    });
+    XCTAssert([str3 isEqualToString:@"aaa"]);
+    
+    NSString *str4 = objc_getAssociatedObject(testObject, AY_TEST_SWIZZLE_ASSOCIATION_KEY2);
+    XCTAssert([str4 isEqualToString:@"aaa"]);
+}
+
 @end
 

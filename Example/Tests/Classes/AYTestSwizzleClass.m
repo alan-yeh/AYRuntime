@@ -2,7 +2,7 @@
 //  AYTestSeizzleClass.m
 //  AYRuntime
 //
-//  Created by PoiSon on 16/8/2.
+//  Created by Alan Yeh on 16/8/2.
 //  Copyright © 2016年 Alan Yeh. All rights reserved.
 //
 

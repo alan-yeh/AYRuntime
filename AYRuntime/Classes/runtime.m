@@ -1,8 +1,8 @@
 //
 //  runtime.m
-//  Pods
+//  AYRuntime
 //
-//  Created by PoiSon on 16/8/2.
+//  Created by Alan Yeh on 16/8/2.
 //
 //
 
@@ -19,7 +19,7 @@ void class_swizzleSelector(Class class, SEL originalSelector, SEL newSelector){
 }
 
 
-void class_enumerateMethodList(Class class, AYMethodEnumertor enumerator){
+void class_enumerateMethodList(Class class, void(^enumerator)(Class class, Method method)){
     NSCParameterAssert(class != nil && enumerator != nil);
     
     unsigned int methodCount = 0;
@@ -50,4 +50,42 @@ IMP class_replaceInstanceMethodWithBlock(Class class, SEL originalSelector, id b
     IMP newImplementation = imp_implementationWithBlock(block);
     
     return method_setImplementation(method, newImplementation);
+}
+
+Method class_getClassMethod(Class cls, SEL selector){
+    return class_getInstanceMethod(object_getClass(cls), selector);
+}
+
+Method class_getInstanceMethod(Class cls, SEL selector){
+    Method result = NULL;
+    unsigned int methodCount = 0;
+    Method *methods = class_copyMethodList(cls, &methodCount);
+    for (unsigned int i = 0; i < methodCount; i++) {
+        if (method_getName(methods[i]) == selector) {
+            result = methods[i];
+            break;
+        }
+    }
+    free(methods);
+    return result;
+}
+
+id objc_getAssociatedDefaultObject(id object, const void *key, id defaultObject, objc_AssociationPolicy policy){
+    id obj = objc_getAssociatedObject(object, key);
+    if (obj == nil && defaultObject != nil) {
+        obj = defaultObject;
+        objc_setAssociatedObject(object, key, obj, policy);
+    }
+    return obj;
+}
+
+id objc_getAssociatedDefaultObjectBlock(id object, const void *key, objc_AssociationPolicy policy, id (^defaultObject)()){
+    id obj = objc_getAssociatedObject(object, key);
+    if (obj == nil && defaultObject != nil) {
+        obj = defaultObject();
+        if (obj != nil) {
+            objc_setAssociatedObject(object, key, obj, policy);
+        }
+    }
+    return obj;
 }

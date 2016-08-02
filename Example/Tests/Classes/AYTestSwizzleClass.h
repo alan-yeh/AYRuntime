@@ -2,7 +2,7 @@
 //  AYTestSeizzleClass.h
 //  AYRuntime
 //
-//  Created by PoiSon on 16/8/2.
+//  Created by Alan Yeh on 16/8/2.
 //  Copyright © 2016年 Alan Yeh. All rights reserved.
 //
 
@@ -17,6 +17,4 @@
 
 - (NSString *)orginalString;
 - (NSString *)__hookedOriginalString;
-
-
 @end

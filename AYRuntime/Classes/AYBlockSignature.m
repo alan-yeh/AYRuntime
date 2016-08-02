@@ -2,11 +2,28 @@
 //  AYBlockSignature.m
 //  AYRuntime
 //
-//  Created by PoiSon on 16/8/2.
+//  Created by Alan Yeh on 16/8/2.
 //
 //
 
 #import "AYBlockSignature.h"
+
+struct AYBlockLiteral {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct block_descriptor {
+        unsigned long int reserved;	// NULL
+        unsigned long int size;         // sizeof(struct Block_literal_1)
+        // optional helper functions
+        void (*copy_helper)(void *dst, void *src);     // IFF (1<<25)
+        void (*dispose_helper)(void *src);             // IFF (1<<25)
+        // required ABI.2010.3.16
+        const char *signature;                         // IFF (1<<30)
+    } *descriptor;
+    // imported variables
+};
 
 @implementation AYBlockSignature
 
@@ -14,10 +31,9 @@
     return [[self alloc] initWithBlock:block];
 }
 
-
 - (id)initWithBlock:(id)block{
     if (self = [super init]) {
-        _block = block;
+        _block = [block copy];
         
         struct AYBlockLiteral *blockRef = (__bridge struct AYBlockLiteral *)block;
         _flags = blockRef->flags;
