@@ -111,7 +111,7 @@
     
     [invocation invoke];
     CGPoint result;
-    [invocation getReutrnValue:&result];
+    [invocation getReturnValue:&result];
     XCTAssert(CGPointEqualToPoint(CGPointMake(2.0, 2.0), result));
 }
 
