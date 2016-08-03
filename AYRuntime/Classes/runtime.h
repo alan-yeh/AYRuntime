@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
 
-#define objc_AssociationKey(key) static const void * const key = &key;
+#define objc_AssociationKey(key) static const void * const key = &key
 #define objc_AssociationKeyAndNotes(key, notes) static const void * const key = &key
 /**
  * Exechange method implementations.
