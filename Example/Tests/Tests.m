@@ -143,7 +143,7 @@
 }
 
 - (void)testDeallocNotifier{
-     id ex = [self expectationWithDescription:@""];
+    id ex = [self expectationWithDescription:@""];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         AYTestSwizzleClass *class = [AYTestSwizzleClass new];
