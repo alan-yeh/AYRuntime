@@ -7,7 +7,7 @@
 //
 
 #import "AYDeallocNotifier.h"
-#import "runtime.h"
+#import "ayruntime_ext.h"
 
 @implementation AYDeallocNotifier
 + (void)notifyWhenInstanceDelloc:(id)anInstance withCallback:(void (^)(void))callback{

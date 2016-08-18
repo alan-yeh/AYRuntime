@@ -6,7 +6,7 @@
 //
 //
 
-#import "runtime.h"
+#import "ayruntime_ext.h"
 
 void class_swizzleSelector(Class class, SEL originalSelector, SEL newSelector){
     Method origMethod = class_getInstanceMethod(class, originalSelector);

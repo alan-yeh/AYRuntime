@@ -1,16 +1,16 @@
 PODS:
-  - AYRuntime (1.0.2)
+  - AYRuntime (1.0.3)
 
 DEPENDENCIES:
   - AYRuntime (from `../`)
 
 EXTERNAL SOURCES:
   AYRuntime:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  AYRuntime: a1d344a10f06897a4c5b7c1573d4071e72d36089
+  AYRuntime: 74cf85d7ed40d036b13837057d5811864c11024e
 
 PODFILE CHECKSUM: 74aad713c7d3565847b360a8cd26f14f21ee5091
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.0.1
