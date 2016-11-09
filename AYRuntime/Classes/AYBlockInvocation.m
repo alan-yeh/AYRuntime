@@ -12,6 +12,10 @@
     NSInvocation *_invocation;
 }
 
+- (NSMethodSignature *)signature{
+    return self.blockSignature.signature;
+}
+
 + (instancetype)invocationWithBlock:(id)block{
     return [[self alloc] initWithBlock:block];
 }

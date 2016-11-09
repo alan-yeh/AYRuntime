@@ -11,6 +11,7 @@
 
 @interface AYBlockInvocation : NSObject
 @property (readonly) AYBlockSignature *blockSignature;
+@property (readonly) NSMethodSignature *signature;
 
 + (instancetype)invocationWithBlock:(id)block;
 - (instancetype)initWithBlock:(id)block;

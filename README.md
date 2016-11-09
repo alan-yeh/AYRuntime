@@ -18,7 +18,7 @@ pod "AYRuntime"
 ## AYBlockInvocation
 　　AYBlockInvocation可以很方便地动态调用block。用法与NSInvocation非常相似。
 
-```objective-c
+```Objective-C
     CGPoint (^block)(CGPoint) = ^CGPoint(CGPoint point) {
         XCTAssert(CGPointEqualToPoint(CGPointMake(1.0, 1.0), point));
         return CGPointMake(point.x + 1.0f, point.y + 1.0f);
