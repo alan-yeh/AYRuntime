@@ -55,4 +55,4 @@ FOUNDATION_EXPORT id objc_getAssociatedDefaultObject(id object, const void *key,
  *
  *  If the return value is nil, then will call "objc_setAssociatedObject" with given argument and value returned from defaultObject()
  */
-FOUNDATION_EXPORT id objc_getAssociatedDefaultObjectBlock(id object, const void *key, objc_AssociationPolicy policy, id (^defaultObject)());
+FOUNDATION_EXPORT id objc_getAssociatedDefaultObjectBlock(id object, const void *key, objc_AssociationPolicy policy, id (^defaultObject)(void));

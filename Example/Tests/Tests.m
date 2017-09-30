@@ -45,6 +45,41 @@
     }
 }
 
+- (void)testBlockInvocation{
+    CGPoint (^block)(CGPoint) = ^CGPoint(CGPoint point) {
+        XCTAssert(CGPointEqualToPoint(CGPointMake(1.0, 1.0), point));
+        return CGPointMake(point.x + 1.0f, point.y + 1.0f);
+    };
+    
+    AYBlockInvocation *invocation = [AYBlockInvocation invocationWithBlock:block];
+    CGPoint point = CGPointMake(1.0, 1.0);
+    [invocation setArgument:&point atIndex:1];
+    
+    [invocation invoke];
+    CGPoint result;
+    [invocation getReturnValue:&result];
+    XCTAssert(CGPointEqualToPoint(CGPointMake(2.0, 2.0), result));
+}
+
+- (void)testBlockInvocation2{
+    BOOL(^testBlock)(BOOL, id) = ^BOOL(BOOL animated, id object) {
+        XCTAssert(animated == YES);
+        XCTAssert([object isEqualToString:@"object"]);
+        return YES;
+    };
+    
+    AYBlockInvocation *invocation = [[AYBlockInvocation alloc] initWithBlock:testBlock];
+    
+    BOOL result = NO;
+    BOOL animated = YES;
+    NSString *object = @"object";
+    [invocation setArgument:&animated atIndex:1];
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    [invocation getReturnValue:&result];
+    XCTAssert(result == YES);
+}
+
 - (void)testMethodReplace{
     AYTestSwizzleClass *testObject = [[AYTestSwizzleClass alloc] init];
     
@@ -99,21 +134,7 @@
     XCTAssertTrue([hookedString isEqualToString:@"foobar"], @"hookedDescription should have suffix 'bar'.");
 }
 
-- (void)testBlockInvocation{
-    CGPoint (^block)(CGPoint) = ^CGPoint(CGPoint point) {
-        XCTAssert(CGPointEqualToPoint(CGPointMake(1.0, 1.0), point));
-        return CGPointMake(point.x + 1.0f, point.y + 1.0f);
-    };
-    
-    AYBlockInvocation *invocation = [AYBlockInvocation invocationWithBlock:block];
-    CGPoint point = CGPointMake(1.0, 1.0);
-    [invocation setArgument:&point atIndex:1];
-    
-    [invocation invoke];
-    CGPoint result;
-    [invocation getReturnValue:&result];
-    XCTAssert(CGPointEqualToPoint(CGPointMake(2.0, 2.0), result));
-}
+
 
 - (void)testGetClassMethod{
     //Method forwarding = class_getInstanceMethod([AYTestSwizzleClass class], @selector(forwardingTargetForSelector:));

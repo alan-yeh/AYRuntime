@@ -79,7 +79,7 @@ id objc_getAssociatedDefaultObject(id object, const void *key, id defaultObject,
     return obj;
 }
 
-id objc_getAssociatedDefaultObjectBlock(id object, const void *key, objc_AssociationPolicy policy, id (^defaultObject)()){
+id objc_getAssociatedDefaultObjectBlock(id object, const void *key, objc_AssociationPolicy policy, id (^defaultObject)(void)){
     id obj = objc_getAssociatedObject(object, key);
     if (obj == nil && defaultObject != nil) {
         obj = defaultObject();
